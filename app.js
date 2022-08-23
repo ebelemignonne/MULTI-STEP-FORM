@@ -82,13 +82,13 @@ function fixStepIndicator(n) {
 
 
 
-//
 
 
 
 
 
-/
+
+
 let eleves = []; // tableau qui stock le genre feminin
 
 
@@ -128,10 +128,9 @@ function recuperer() {
   let date = document.getElementById("date").value;
   let lieu = document.getElementById("lieu").value;
   let classe = document.getElementById("classe").value;
-
   let nom_t = document.getElementById("nom_t").value;
   let prenom_t = document.getElementById("prenom_t").value;
-  let prefession = document.getElementById("prefession").value;
+  let profession = document.getElementById("profession").value;
   let tel = document.getElementById("tel").value;
   let email = document.getElementById("email").value;
 
@@ -143,10 +142,9 @@ function recuperer() {
     date: date,
     lieu: lieu,
     classe: classe,
-
     nom_t: nom_t,
     prenom_t: prenom_t,
-    prefession: prefession,
+    profession: profession,
     tel: tel,
     email: email,
   };
@@ -165,7 +163,7 @@ function recuperer() {
         <td>${classe}</td>
         <td>${nom_t}</td>
         <td>${prenom_t}</td>
-        <td>${prefession} ans</td>
+        <td>${profession} ans</td>
         <td>${tel}</td>
         <td>${email}</td>
     </tr>`;
