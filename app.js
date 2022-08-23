@@ -88,9 +88,15 @@ function fixStepIndicator(n) {
 
 
 
-
+//let eleves = []; // tableau qui stock les information des eleves
 let eleves = []; // tableau qui stock le genre feminin
+// JSON.parse(eleves);
+// localStorage.getItem("eleve", JSON.stringify(eleves));
 
+/*for (let i = 0; i < localStorage.length; i++) {
+  let key = localStorage.key(i);
+  alert(`${key}: ${localStorage.getItem(key)}`);
+}*/
 
 window.addEventListener("load", () => {
   eleves = JSON.parse(localStorage.getItem("lists")) || [];
@@ -106,14 +112,14 @@ function viewer() {
     <tr>
        <td>${stockEleve[index].nom}</td>
        <td>${stockEleve[index].prenom}</td>
-       <td>${stockEleve[index].sexe}</td>
+       <td>${stockEleve[index].genre}</td>
        <td>${stockEleve[index].date}</td>
        <td>${stockEleve[index].lieu}</td>
        <td>${stockEleve[index].classe}</td>
-       <td>${stockEleve[index].nom-t}</td>
-       <td>${stockEleve[index].prenom-t}</td>
+       <td>${stockEleve[index].nom}</td>
+       <td>${stockEleve[index].prenom}</td>
        <td>${stockEleve[index].profession}</td>
-       <td>${stockEleve[index].tel}</td>
+       <td>${stockEleve[index].numero}</td>
        <td>${stockEleve[index].email}</td>
     </tr>
     `;
@@ -128,9 +134,10 @@ function recuperer() {
   let date = document.getElementById("date").value;
   let lieu = document.getElementById("lieu").value;
   let classe = document.getElementById("classe").value;
+
   let nom_t = document.getElementById("nom_t").value;
   let prenom_t = document.getElementById("prenom_t").value;
-  let profession = document.getElementById("profession").value;
+  let prefession = document.getElementById("prefession").value;
   let tel = document.getElementById("tel").value;
   let email = document.getElementById("email").value;
 
@@ -142,9 +149,10 @@ function recuperer() {
     date: date,
     lieu: lieu,
     classe: classe,
+
     nom_t: nom_t,
     prenom_t: prenom_t,
-    profession: profession,
+    prefession: prefession,
     tel: tel,
     email: email,
   };
@@ -163,7 +171,7 @@ function recuperer() {
         <td>${classe}</td>
         <td>${nom_t}</td>
         <td>${prenom_t}</td>
-        <td>${profession} ans</td>
+        <td>${prefession} ans</td>
         <td>${tel}</td>
         <td>${email}</td>
     </tr>`;
