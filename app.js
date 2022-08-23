@@ -75,15 +75,22 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-//let eleves = []; // tableau qui stock les information des eleves
-let eleves = []; // tableau qui stock le genre feminin
-// JSON.parse(eleves);
-// localStorage.getItem("eleve", JSON.stringify(eleves));
 
-/*for (let i = 0; i < localStorage.length; i++) {
-  let key = localStorage.key(i);
-  alert(`${key}: ${localStorage.getItem(key)}`);
-}*/
+
+
+
+
+
+
+//
+
+
+
+
+
+/
+let eleves = []; // tableau qui stock le genre feminin
+
 
 window.addEventListener("load", () => {
   eleves = JSON.parse(localStorage.getItem("lists")) || [];
@@ -99,14 +106,14 @@ function viewer() {
     <tr>
        <td>${stockEleve[index].nom}</td>
        <td>${stockEleve[index].prenom}</td>
-       <td>${stockEleve[index].genre}</td>
+       <td>${stockEleve[index].sexe}</td>
        <td>${stockEleve[index].date}</td>
        <td>${stockEleve[index].lieu}</td>
        <td>${stockEleve[index].classe}</td>
-       <td>${stockEleve[index].nom}</td>
-       <td>${stockEleve[index].prenom}</td>
+       <td>${stockEleve[index].nom-t}</td>
+       <td>${stockEleve[index].prenom-t}</td>
        <td>${stockEleve[index].profession}</td>
-       <td>${stockEleve[index].numero}</td>
+       <td>${stockEleve[index].tel}</td>
        <td>${stockEleve[index].email}</td>
     </tr>
     `;
