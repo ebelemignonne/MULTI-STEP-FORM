@@ -112,7 +112,6 @@ function viewer() {
   for (let index = 0; index < Informstions.length; index++) {
     let table = document.getElementById("eleve");
     
-
     /*-------Ajout d'un tableau me permettent de toujours stocker les informations enregistré en amont dans le tableau "table"------- */
     table.innerHTML += `
     <tr>
@@ -174,15 +173,17 @@ const eleve = {
   eleves.push(eleve);
 
   
-  /*-------Declaration du tableau de stokage des objets------- */
+  /*-------Stackage des informations dans le localStorage avec la methode setItem en meme temps transformer 
+  les informations stockees dans le tableau eleves en string (chaine de carractere) avec la methode JSON.stringfy------- */
   localStorage.setItem("eleves", JSON.stringify(eleves));
   
   
-  /*-------Declaration du tableau de stokage des objets------- */
+  /*-------Recuperation du tableau créé en html et le stocker dans la variable (table) ------- */
   let table = document.getElementById("eleve");
   
   
-  /*-------Declaration du tableau de stokage des objets------- */
+  /*-------creation d'un tableau vide puis concatener les nouvelles valeurs saisis et les afficher dans le document 
+  a travers la methode (.innerHTML)------- */
   table.innerHTML += `
   <tr>
     <td>${nom}</td>
