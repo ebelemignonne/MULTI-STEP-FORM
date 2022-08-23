@@ -77,25 +77,23 @@ function fixStepIndicator(n) {
 
 //let eleves = []; // tableau qui stock les information des eleves
 let eleves = []; // tableau qui stock le genre feminin
-// JSON.parse(eleves);
-// localStorage.getItem("eleve", JSON.stringify(eleves));
+JSON.parse(eleves); // 1
 
-/*for (let i = 0; i < localStorage.length; i++) {
+let stockEleve = JSON.parse(localStorage.getItem("eleves"));
+
+/*
+
+localStorage.getItem("eleve", JSON.stringify(eleves));
+
+for (let i = 0; i < localStorage.length; i++) {
   let key = localStorage.key(i);
   alert(`${key}: ${localStorage.getItem(key)}`);
 }*/
 
-window.addEventListener("load", () => {
-  eleves = JSON.parse(localStorage.getItem("lists")) || [];
-  viewer();
-});
+for (let index = 0; index < stockEleve.length; index++) {
+  let tableau = document.getElementById("tableau");
 
-let stockEleve = JSON.parse(localStorage.getItem("eleves"));
-
-function viewer() {
-  for (let index = 0; index < stockEleve.length; index++) {
-    let table = document.getElementById("eleve");
-    table.innerHTML += `
+  tableau.innerHTML += `
     <tr>
        <td>${stockEleve[index].nom}</td>
        <td>${stockEleve[index].prenom}</td>
@@ -110,7 +108,6 @@ function viewer() {
        <td>${stockEleve[index].email}</td>
     </tr>
     `;
-  }
 }
 
 function recuperer() {
