@@ -75,68 +75,42 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let eleves = []; // tableau qui stock le genre feminin
 
 function recuperer() {
-    event.preventDefault();
-    let nom = document.getElementById("nom").value;
-    let prenom = document.getElementById("prenom").value;
-    let sexe = document.getElementById("sexe").value;
-    let date = document.getElementById("date").value;
-    let lieu = document.getElementById("lieu").value;
-    let classe = document.getElementById("classe").value;
+  event.preventDefault();
+  let nom = document.getElementById("nom").value;
+  let prenom = document.getElementById("prenom").value;
+  let sexe = document.getElementById("sexe").value;
+  let date = document.getElementById("date").value;
+  let lieu = document.getElementById("lieu").value;
+  let classe = document.getElementById("classe").value;
 
-    let nom_t = document.getElementById("nom_t").value;
-    let prenom_t = document.getElementById("prenom_t").value;
-    let prefession = document.getElementById("prefession").value;
-    let tel = document.getElementById("tel").value;
-    let email = document.getElementById("email").value;
-    
-    
-    // declare l'objet personne
-    const eleve = {
-      nom: nom,
-      prenom: prenom,
-      sexe: sexe,
-      date: date,
-      lieu: lieu,
-      classe: classe,
+  let nom_t = document.getElementById("nom_t").value;
+  let prenom_t = document.getElementById("prenom_t").value;
+  let prefession = document.getElementById("prefession").value;
+  let tel = document.getElementById("tel").value;
+  let email = document.getElementById("email").value;
 
-      nom: nom_t,
-      prenom: prenom_t,
-      prefession: prefession,
-      tel: tel,
-      email: email,
-    };
-eleves.push(eleve)
+  // declare l'objet personne
+  const eleve = {
+    nom: nom,
+    prenom: prenom,
+    sexe: sexe,
+    date: date,
+    lieu: lieu,
+    classe: classe,
 
-let tableauEleve = document.getElementById("eleve");
-tableauEleve.innerHTML += `
+    nom_t: nom_t,
+    prenom_t: prenom_t,
+    prefession: prefession,
+    tel: tel,
+    email: email,
+  };
+  eleves.push(eleve);
+
+  let tableauEleve = document.getElementById("eleve");
+  tableauEleve.innerHTML += `
     <tr>
         <td>${nom}</td>
         <td>${prenom}</td>
@@ -144,38 +118,10 @@ tableauEleve.innerHTML += `
         <td>${date}</td>
         <td>${lieu}</td>
         <td>${classe}</td>
-
-        <td>${nom}</td>
-        <td>${prenom}</td>
+        <td>${nom_t}</td>
+        <td>${prenom_t}</td>
         <td>${prefession} ans</td>
         <td>${tel}</td>
         <td>${email}</td>
     </tr>`;
-    }
-    
-    
-    
-    
-
-    
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

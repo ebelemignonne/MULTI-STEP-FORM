@@ -64,3 +64,57 @@ input.invalid {
     text-align:center;
     margin-top:40px;
 }
+
+
+
+
+
+.col-8{
+    width: 100%;
+    border: solid 0.2vw rgba(122, 122, 122, 0.532);
+    transform: translateY(-50px);
+}
+
+.table{
+    width: 100%;
+    border: solid 0.1vw rgba(122, 122, 122, 0.532);
+}
+/*th{
+    text-align: center;
+    width: 10%;
+    border: solid 0.1vw rgba(122, 122, 122, 0.532);
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
