@@ -103,40 +103,41 @@ window.addEventListener("load", () => {
 
 /*-------Recuperation des donnees dans le localStorage a travers la methode 'getItem' parser ces donnees JSON en utilisent JSON.arse
 puis stocker des donnees dans la variable stockEleve. ------- */
-let stockEleve = JSON.parse(localStorage.getItem("eleves"));
+let Informstions = JSON.parse(localStorage.getItem("eleves"));
 
 
 /*-------Declaration de la fonction viewer qui a l'interieur je vais ajouter la boucle for qui permetra 
-a chaque fois que la variable index est strictement inferieure a 0 par rapport a la longueur totale du ------- */
+a chaque fois que la variable index est strictement inferieure a 0 par rapport a la longueur totale de l'objet tableau------- */
 function viewer() {
-  for (let index = 0; index < stockEleve.length; index++) {
+  for (let index = 0; index < Informstions.length; index++) {
     let table = document.getElementById("eleve");
     
 
-    /*-------Declaration du tableau de stokage des objets------- */
+    /*-------Ajout d'un tableau me permettent de toujours stocker les informations enregistré en amont dans le tableau "table"------- */
     table.innerHTML += `
     <tr>
-    <td>${stockEleve[index].nom}</td>
-    <td>${stockEleve[index].prenom}</td>
-    <td>${stockEleve[index].genre}</td>
-       <td>${stockEleve[index].date}</td>
-       <td>${stockEleve[index].lieu}</td>
-       <td>${stockEleve[index].classe}</td>
-       <td>${stockEleve[index].nom}</td>
-       <td>${stockEleve[index].prenom}</td>
-       <td>${stockEleve[index].profession}</td>
-       <td>${stockEleve[index].numero}</td>
-       <td>${stockEleve[index].email}</td>
-       </tr>
+       <td>${Informstions[index].nom}</td>
+       <td>${Informstions[index].prenom}</td>
+       <td>${Informstions[index].genre}</td>
+       <td>${Informstions[index].date}</td>
+       <td>${Informstions[index].lieu}</td>
+       <td>${Informstions[index].classe}</td>
+       <td>${Informstions[index].nom}</td>
+       <td>${Informstions[index].prenom}</td>
+       <td>${Informstions[index].profession}</td>
+       <td>${Informstions[index].numero}</td>
+       <td>${Informstions[index].email}</td>
+    </tr>
        `;
       }
     }
     
 
     
-    /*-------Declaration du tableau de stokage des objets------- */
+  /*-------Declaration de la fonction 'recuperer' appelée en html du bouton (Valider) a travers la proprietee onClick------- */
     function recuperer() {
-  event.preventDefault();
+      event.preventDefault();
+  /*-------Recuperation de chaque valeur saisie dans des input en utlisant la propriete (document.getElementById)------- */
   let nom = document.getElementById("nom").value;
   let prenom = document.getElementById("prenom").value;
   let sexe = document.getElementById("sexe").value;
@@ -151,7 +152,7 @@ function viewer() {
   let email = document.getElementById("email").value;
   
   
-/*-------Declaration du tableau de stokage des objets------- */
+/*-------Creation de l'objet eleve qui vas contenir les informatios recuperées plus haut------- */
 const eleve = {
     nom: nom,
     prenom: prenom,
@@ -169,7 +170,7 @@ const eleve = {
   
   
   
-  /*-------Declaration du tableau de stokage des objets------- */
+  /*-------Envois de l'objet eleve dans le tableau eleves creer plus haut------- */
   eleves.push(eleve);
 
   
