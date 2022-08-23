@@ -91,24 +91,34 @@ function fixStepIndicator(n) {
 /*-------------------------------------------------DEBUT DE LA RECUPERATION DES DONNEES DU FORMULAIRE----------------------------------- */
 
 
-let eleves = []; // tableau qui stock le genre feminin
+/*-------Declaration du tableau de stokage des objets------- */
+let eleves = [];
 
 
+/*-------Declaration du tableau de stokage des objets------- */
 window.addEventListener("load", () => {
   eleves = JSON.parse(localStorage.getItem("lists")) || [];
   viewer();
 });
 
+/*-------Recuperation des donnees dans le localStorage a travers la methode 'getItem' parser ces donnees JSON en utilisent JSON.arse
+puis stocker des donnees dans la variable stockEleve. ------- */
 let stockEleve = JSON.parse(localStorage.getItem("eleves"));
 
+
+/*-------Declaration de la fonction viewer qui a l'interieur je vais ajouter la boucle for qui permetra 
+a chaque fois que la variable index est strictement inferieure a 0 par rapport a la longueur totale du ------- */
 function viewer() {
   for (let index = 0; index < stockEleve.length; index++) {
     let table = document.getElementById("eleve");
+    
+
+    /*-------Declaration du tableau de stokage des objets------- */
     table.innerHTML += `
     <tr>
-       <td>${stockEleve[index].nom}</td>
-       <td>${stockEleve[index].prenom}</td>
-       <td>${stockEleve[index].genre}</td>
+    <td>${stockEleve[index].nom}</td>
+    <td>${stockEleve[index].prenom}</td>
+    <td>${stockEleve[index].genre}</td>
        <td>${stockEleve[index].date}</td>
        <td>${stockEleve[index].lieu}</td>
        <td>${stockEleve[index].classe}</td>
@@ -117,12 +127,15 @@ function viewer() {
        <td>${stockEleve[index].profession}</td>
        <td>${stockEleve[index].numero}</td>
        <td>${stockEleve[index].email}</td>
-    </tr>
-    `;
-  }
-}
+       </tr>
+       `;
+      }
+    }
+    
 
-function recuperer() {
+    
+    /*-------Declaration du tableau de stokage des objets------- */
+    function recuperer() {
   event.preventDefault();
   let nom = document.getElementById("nom").value;
   let prenom = document.getElementById("prenom").value;
@@ -130,47 +143,63 @@ function recuperer() {
   let date = document.getElementById("date").value;
   let lieu = document.getElementById("lieu").value;
   let classe = document.getElementById("pet-select").value;
-
+  
   let nom_t = document.getElementById("nom_t").value;
   let prenom_t = document.getElementById("prenom_t").value;
   let prefession = document.getElementById("prefession").value;
   let tel = document.getElementById("tel").value;
   let email = document.getElementById("email").value;
-
-  // declare l'objet personne
-  const eleve = {
+  
+  
+/*-------Declaration du tableau de stokage des objets------- */
+const eleve = {
     nom: nom,
     prenom: prenom,
     sexe: sexe,
     date: date,
     lieu: lieu,
     classe: classe,
-
+    
     nom_t: nom_t,
     prenom_t: prenom_t,
     prefession: prefession,
     tel: tel,
     email: email,
   };
+  
+  
+  
+  /*-------Declaration du tableau de stokage des objets------- */
   eleves.push(eleve);
-  console.log(eleves);
 
+  
+  /*-------Declaration du tableau de stokage des objets------- */
   localStorage.setItem("eleves", JSON.stringify(eleves));
-
+  
+  
+  /*-------Declaration du tableau de stokage des objets------- */
   let table = document.getElementById("eleve");
+  
+  
+  /*-------Declaration du tableau de stokage des objets------- */
   table.innerHTML += `
-      <tr>
-          <td>${nom}</td>
-          <td>${prenom}</td>
-          <td>${sexe}</td>
-          <td>${date}</td>
-          <td>${lieu}</td>
-          <td>${classe}</td>
+  <tr>
+    <td>${nom}</td>
+    <td>${prenom}</td>
+    <td>${sexe}</td>
+    <td>${date}</td>
+    <td>${lieu}</td>
+    <td>${classe}</td>
           
-          <td>${nom_t}</td>
-          <td>${prenom_t}</td>
-          <td>${prefession}</td>
-          <td>${tel}</td>
-          <td>${email}</td>
-      </tr>`;
-}
+    <td>${nom_t}</td>
+    <td>${prenom_t}</td>
+    <td>${prefession}</td>
+    <td>${tel}</td>
+    <td>${email}</td>
+    </tr>`;
+  }
+        
+
+
+
+/*-------------------------------------------------DEBUT DE LA RECUPERATION DES DONNEES DU FORMULAIRE----------------------------------- */
