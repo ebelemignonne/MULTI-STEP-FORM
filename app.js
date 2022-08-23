@@ -1,11 +1,11 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+var currentTab = 0; // L'onglet actuel est défini comme le premier onglet (0)
+showTab(currentTab); // Afficher l'onglet en cours
 
 function showTab(n) {
-  // This function will display the specified tab of the form ...
+  // Cette fonction affichera l'onglet spécifié du formulaire ...
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
-  // ... and fix the Previous/Next buttons:
+  // ... et corrigez les boutons Précédent/Suivant :
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
@@ -16,65 +16,66 @@ function showTab(n) {
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
-  // ... and run a function that displays the correct step indicator:
+  // ... et exécutez une fonction qui affiche l'indicateur de pas correct:
   fixStepIndicator(n);
 }
 
 function nextPrev(n) {
-  // This function will figure out which tab to display
+  // Cette fonction déterminera quel onglet afficher
   var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
+  // Quittez la fonction si un champ de l'onglet actuel n'est pas valide :
   if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
+  // Masquez l'onglet actuel :
   x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
+  // Augmenter ou diminuer l'onglet actuel de 1 :
   currentTab = currentTab + n;
-  // if you have reached the end of the form... :
+  // si vous avez atteint la fin du formulaire... :
   if (currentTab >= x.length) {
-    //...the form gets submitted:
+    //...le formulaire est soumis:
     document.getElementById("regForm").submit();
     return false;
   }
-  // Otherwise, display the correct tab:
+  // Sinon, affichez le bon onglet :
   showTab(currentTab);
 }
 
 function validateForm() {
-  // This function deals with validation of the form fields
+  // Cette fonction traite de la validation des champs du formulaire
   var x,
     y,
     i,
     valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
+  // Une boucle qui vérifie chaque champ de saisie dans l'onglet actuel :
   for (i = 0; i < y.length; i++) {
-    // If a field is empty...
+    // Si un champ est vide...
     if (y[i].value == "") {
-      // add an "invalid" class to the field:
+      // ajoutez une classe "invalide" au champ :
       y[i].className += " invalid";
-      // and set the current valid status to false:
+      // et définissez le statut valide actuel sur false :
       valid = false;
     }
   }
-  // If the valid status is true, mark the step as finished and valid:
+  // Si le statut valide est vrai, marquez l'étape comme terminée et valide :
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
-  return valid; // return the valid status
+  return valid; // retourner le statut valide
 }
 
 function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
+  // Cette fonction supprime la classe "active" de toutes les étapes...
   var i,
     x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
-  //... and adds the "active" class to the current step:
+  //... et ajoute la classe "active" à l'étape courante:
   x[n].className += " active";
 }
 
+/*-------------------------------------------------FIN DE LA MANIPULATION DU MULTISTEEP----------------------------------- *\
 
 
 
@@ -87,16 +88,11 @@ function fixStepIndicator(n) {
 
 
 
+/*-------------------------------------------------DEBUT DE LA RECUPERATION DES DONNEES DU FORMULAIRE----------------------------------- */
 
-//let eleves = []; // tableau qui stock les information des eleves
+
 let eleves = []; // tableau qui stock le genre feminin
-// JSON.parse(eleves);
-// localStorage.getItem("eleve", JSON.stringify(eleves));
 
-/*for (let i = 0; i < localStorage.length; i++) {
-  let key = localStorage.key(i);
-  alert(`${key}: ${localStorage.getItem(key)}`);
-}*/
 
 window.addEventListener("load", () => {
   eleves = JSON.parse(localStorage.getItem("lists")) || [];
@@ -133,7 +129,7 @@ function recuperer() {
   let sexe = document.getElementById("sexe").value;
   let date = document.getElementById("date").value;
   let lieu = document.getElementById("lieu").value;
-  let classe = document.getElementById("classe").value;
+  let classe = document.getElementById("pet-select").value;
 
   let nom_t = document.getElementById("nom_t").value;
   let prenom_t = document.getElementById("prenom_t").value;
@@ -157,22 +153,24 @@ function recuperer() {
     email: email,
   };
   eleves.push(eleve);
+  console.log(eleves);
 
   localStorage.setItem("eleves", JSON.stringify(eleves));
 
   let table = document.getElementById("eleve");
   table.innerHTML += `
-    <tr>
-        <td>${nom}</td>
-        <td>${prenom}</td>
-        <td>${sexe} ans</td>
-        <td>${date}</td>
-        <td>${lieu}</td>
-        <td>${classe}</td>
-        <td>${nom_t}</td>
-        <td>${prenom_t}</td>
-        <td>${prefession} ans</td>
-        <td>${tel}</td>
-        <td>${email}</td>
-    </tr>`;
+      <tr>
+          <td>${nom}</td>
+          <td>${prenom}</td>
+          <td>${sexe}</td>
+          <td>${date}</td>
+          <td>${lieu}</td>
+          <td>${classe}</td>
+          
+          <td>${nom_t}</td>
+          <td>${prenom_t}</td>
+          <td>${prefession}</td>
+          <td>${tel}</td>
+          <td>${email}</td>
+      </tr>`;
 }
