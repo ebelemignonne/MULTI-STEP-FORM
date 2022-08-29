@@ -83,7 +83,7 @@ let eleves = [];
 
 /*-------Declaration du tableau de stokage des objets------- */
 window.addEventListener("load", () => {
-  eleves = JSON.parse(localStorage.getItem("lists")) || [];
+  eleves = JSON.parse(localStorage.getItem("eleves")) || [];
   viewer();
 });
 
@@ -169,7 +169,6 @@ function recuperer() {
     <td>${date}</td>
     <td>${lieu}</td>
     <td>${classe}</td>
-          
     <td>${nom_t}</td>
     <td>${prenom_t}</td>
     <td>${prefession}</td>
