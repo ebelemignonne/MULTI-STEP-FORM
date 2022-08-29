@@ -105,7 +105,7 @@ for (let index = 0; index < stockEleve.length; index++) {
        <td>${stockEleve[index].prenom}</td>
        <td>${stockEleve[index].profession}</td>
        <td>${stockEleve[index].numero}</td>
-       <td>${stockEleve[index].email}</td>
+       <td>${stockEleve[index].e-mail}</td>
     </tr>
     `;
 }
@@ -121,9 +121,9 @@ function recuperer() {
 
   let nom_t = document.getElementById("nom_t").value;
   let prenom_t = document.getElementById("prenom_t").value;
-  let prefession = document.getElementById("prefession").value;
+  let Profession = document.getElementById("Profession").value;
   let tel = document.getElementById("tel").value;
-  let email = document.getElementById("email").value;
+  let e-mail = document.getElementById("e-mail").value;
 
   // declare l'objet personne
   const eleve = {
@@ -136,9 +136,9 @@ function recuperer() {
 
     nom_t: nom_t,
     prenom_t: prenom_t,
-    prefession: prefession,
+    Profession: Profession,
     tel: tel,
-    email: email,
+    e-mail: e-mail,
   };
   eleves.push(eleve);
 
@@ -155,8 +155,8 @@ function recuperer() {
         <td>${classe}</td>
         <td>${nom_t}</td>
         <td>${prenom_t}</td>
-        <td>${prefession} ans</td>
+        <td>${Profession} ans</td>
         <td>${tel}</td>
-        <td>${email}</td>
+        <td>${e-mail}</td>
     </tr>`;
 }
